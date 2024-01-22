@@ -15,9 +15,29 @@ function createGrid(n) {
 
 }
 
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+function changeGrid(n) {
+    const div = document.querySelector('.grid');
+    removeAllChildNodes(div);
+    createGrid(n);
+
+}
+
 function changeColorOnHover(event) {
     const cell = event.target;
     cell.style.backgroundColor = 'black';
 }
+
+let slider = document.querySelector('.slider');
+let slideValue = document.querySelector('.slide-value');
+slideValue.textContent = slider.value;
+
+slider.oninput = () => slideValue.textContent = slider.value;
+slider.onchange = () => changeGrid(slider.value);
 
 createGrid(16);
