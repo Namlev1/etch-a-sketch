@@ -1,6 +1,7 @@
 const grid = document.querySelector('.grid');
 const slider = document.querySelector('.slider');
 const slideValDisplay = document.querySelector('.slide-val-display');
+const clearBtn = document.querySelector('.clear');
 
 function createGrid(n) {
     for (let i = 0; i < n; i++) {
@@ -39,6 +40,9 @@ function changeColorOnHover(event) {
 
 slider.oninput = () => slideValDisplay.textContent = slider.value;
 slider.onchange = () => changeGrid(slider.value);
+
+clearBtn.addEventListener('click', () =>
+    changeGrid(slider.value));
 
 slideValDisplay.textContent = slider.value;
 createGrid(16);
