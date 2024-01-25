@@ -5,6 +5,7 @@ const clearBtn = document.querySelector('.clear');
 const colorPicker = document.querySelector('#color-picker');
 const rainbowBtn = document.querySelector('#rainbow');
 const colorBtn = document.querySelector('#color-mode');
+const eraserBtn = document.querySelector('#eraser');
 
 const COLOR_MODE = 0;
 const RAINBOW_MODE = 1;
@@ -54,6 +55,10 @@ colorBtn.addEventListener('click', () => {
     mode = COLOR_MODE;
     color = colorPicker.value;
 });
+eraserBtn.addEventListener('click', () => {
+    mode = COLOR_MODE;
+    color = 'white';
+})
 
 clearBtn.addEventListener('click', () =>
     changeGrid(slider.value));
