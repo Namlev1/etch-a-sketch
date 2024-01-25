@@ -2,6 +2,7 @@ const grid = document.querySelector('.grid');
 const slider = document.querySelector('.slider');
 const slideValDisplay = document.querySelector('.slide-val-display');
 const clearBtn = document.querySelector('.clear');
+const colorPicker = document.querySelector('#color-picker');
 
 function createGrid(n) {
     for (let i = 0; i < n; i++) {
@@ -34,15 +35,18 @@ function changeGrid(n) {
 
 function changeColorOnHover(event) {
     const cell = event.target;
-    cell.style.backgroundColor = 'black';
+    cell.style.backgroundColor = color;
 }
 
 
 slider.oninput = () => slideValDisplay.textContent = slider.value;
 slider.onchange = () => changeGrid(slider.value);
 
+colorPicker.addEventListener('input', (event) => color = event.target.value);
+
 clearBtn.addEventListener('click', () =>
     changeGrid(slider.value));
 
+let color = 'black';
 slideValDisplay.textContent = slider.value;
 createGrid(16);
