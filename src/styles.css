@@ -1,14 +1,48 @@
-.grid {
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
     display: flex;
 }
 
-.cell {
-    height: 10px;
-    width: 10px;
-    background-color: white;
-    border-width: 2px;
+.menu {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 56px;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    width: 400px;
+    height: 400px;
+    border-width: 10px;
+    border-color: black;
     border-style: solid;
-    border-color: aqua;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.cell {
+    flex: 1;
+    background-color: white;
 }
 
 .slider {
