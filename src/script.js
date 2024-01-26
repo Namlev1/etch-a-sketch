@@ -1,3 +1,4 @@
+// HTML elements
 const grid = document.querySelector('.grid');
 const slider = document.querySelector('.slider');
 const slideValDisplay = document.querySelector('.slide-val-display');
@@ -8,10 +9,12 @@ const colorBtn = document.querySelector('#color-mode');
 const eraserBtn = document.querySelector('#eraser');
 const buttons = document.querySelectorAll('button');
 
+// Constants
 const COLOR_MODE = 0;
 const RAINBOW_MODE = 1;
 const BACKGROUND_COLOR = '#ededed';
 
+// Grid creation
 function createGrid(n) {
     for (let i = 0; i < n; i++) {
         const row = document.createElement('div');
@@ -41,6 +44,7 @@ function removeAllChildNodes(parent) {
     }
 }
 
+// Coloring cells inside grid
 function refreashButtonColors() {
     buttons.forEach(button => {
         button.style.backgroundColor = BACKGROUND_COLOR;
@@ -54,6 +58,8 @@ function alterButtonColors(button) {
 }
 
 let color = 'black';
+let mode = COLOR_MODE;
+
 colorPicker.addEventListener('input', (event) => color = event.target.value);
 
 function changeColorOnHover(event) {
@@ -63,7 +69,7 @@ function changeColorOnHover(event) {
     cell.style.backgroundColor = color;
 }
 
-let mode = COLOR_MODE;
+// Buttons event listeners
 rainbowBtn.addEventListener('click', (event) => {
     mode = RAINBOW_MODE;
     refreashButtonColors();
@@ -87,8 +93,10 @@ clearBtn.addEventListener('click', (event) => {
     alterButtonColors(event.target);
 });
 
+// Size slider
 slider.oninput = () => slideValDisplay.textContent = slider.value + ' x ' + slider.value;
 slider.onchange = () => changeGrid(slider.value);
 
+// Startup
 slideValDisplay.textContent = slider.value + ' x ' + slider.value;
 createGrid(10);
