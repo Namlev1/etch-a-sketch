@@ -10,19 +10,21 @@
 
 <body>
     <h1>Etch-a-sketch</h1>
-    <div class="content">
-        <div class="menu">
-            <input type="color" id="color-picker">
-            <button id="color-mode">Color mode</button>
-            <button id="rainbow">Rainbow mode</button>
-            <button id="eraser">Eraser</button>
-            <button class="clear">Clear</button>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="16" class="slider">
+    <div class="main">
+        <div class="content">
+            <div class="menu">
+                <input type="color" id="color-picker">
+                <button id="color-mode">Color mode</button>
+                <button id="rainbow">Rainbow mode</button>
+                <button id="eraser">Eraser</button>
+                <button class="clear">Clear</button>
+                <div class="slide-val-display"></div>
+                <div class="slidecontainer">
+                    <input type="range" min="10" max="100" value="10" class="slider">
+                </div>
             </div>
-            <div class="slide-val-display"></div>
-        </div>
-        <div class="grid">
+            <div class="grid">
+            </div>
         </div>
     </div>
     <div class="footer">

@@ -6,9 +6,11 @@ const colorPicker = document.querySelector('#color-picker');
 const rainbowBtn = document.querySelector('#rainbow');
 const colorBtn = document.querySelector('#color-mode');
 const eraserBtn = document.querySelector('#eraser');
+const buttons = document.querySelectorAll('button');
 
 const COLOR_MODE = 0;
 const RAINBOW_MODE = 1;
+const BACKGROUND_COLOR = '#ededed';
 
 function createGrid(n) {
     for (let i = 0; i < n; i++) {
@@ -39,6 +41,18 @@ function removeAllChildNodes(parent) {
     }
 }
 
+function refreashButtonColors() {
+    buttons.forEach(button => {
+        button.style.backgroundColor = BACKGROUND_COLOR;
+        button.style.color = 'black';
+    })
+}
+
+function alterButtonColors(button) {
+    button.style.backgroundColor = 'black';
+    button.style.color = BACKGROUND_COLOR;
+}
+
 let color = 'black';
 colorPicker.addEventListener('input', (event) => color = event.target.value);
 
@@ -50,20 +64,31 @@ function changeColorOnHover(event) {
 }
 
 let mode = COLOR_MODE;
-rainbowBtn.addEventListener('click', () => mode = RAINBOW_MODE);
-colorBtn.addEventListener('click', () => {
+rainbowBtn.addEventListener('click', (event) => {
+    mode = RAINBOW_MODE;
+    refreashButtonColors();
+    alterButtonColors(event.target);
+});
+colorBtn.addEventListener('click', (event) => {
     mode = COLOR_MODE;
     color = colorPicker.value;
+    refreashButtonColors();
+    alterButtonColors(event.target);
 });
-eraserBtn.addEventListener('click', () => {
+eraserBtn.addEventListener('click', (event) => {
     mode = COLOR_MODE;
     color = 'white';
+    refreashButtonColors();
+    alterButtonColors(event.target);
 })
+clearBtn.addEventListener('click', (event) => {
+    changeGrid(slider.value);
+    refreashButtonColors();
+    alterButtonColors(event.target);
+});
 
-clearBtn.addEventListener('click', () =>
-    changeGrid(slider.value));
-slider.oninput = () => slideValDisplay.textContent = slider.value;
+slider.oninput = () => slideValDisplay.textContent = slider.value + ' x ' + slider.value;
 slider.onchange = () => changeGrid(slider.value);
 
-slideValDisplay.textContent = slider.value;
-createGrid(16);
+slideValDisplay.textContent = slider.value + ' x ' + slider.value;
+createGrid(10);
