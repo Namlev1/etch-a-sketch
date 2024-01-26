@@ -70,6 +70,7 @@ h1 {
 .cell {
     flex: 1;
     background-color: white;
+    transition: all 0.5s;
 }
 
 .slider {
