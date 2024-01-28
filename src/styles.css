@@ -25,12 +25,12 @@ button {
 
 h1 {
     font-size: 70px;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 .main {
     width: 100%;
-    padding-left: 800px;
+    /* padding-left: 800px; */
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
@@ -41,6 +41,10 @@ h1 {
     gap: calc((100vw / 2) - 804px);
     flex-basis: 450px;
     align-items: center;
+}
+
+.blank {
+    min-width: 275px;
 }
 
 .menu {
